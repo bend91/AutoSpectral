@@ -117,6 +117,7 @@ unmix.fcs <- function( fcs.file, spectra, asp, flow.control,
   )
 
   fcs.keywords <- flowCore::keyword( fcs.data )
+  fcs.keywords <- fcs.keywords[!grepl("^\\$P[0-9]", names(fcs.keywords))]
   file.name <- flowCore::keyword( fcs.data, "$FIL" )
   RMSE <- NULL
 
